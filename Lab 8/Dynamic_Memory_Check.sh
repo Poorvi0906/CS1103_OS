@@ -37,4 +37,5 @@ echo "Invalid option. Please select 1-3."
 ;;
 esac
 echo "" # Print a newline for better readability
+sleep 10
 done
