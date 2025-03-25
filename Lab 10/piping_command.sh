@@ -25,13 +25,10 @@ search_the_contents() {
     fi
     echo ""
 }
-# Function to count files and directories
 count_files_and_directories() {
-    file_count=$(find . -maxdepth 1 -type f | wc -l)
-    dir_count=$(find . -maxdepth 1 -type d | wc -l)
-    echo "Number of files: $file_count"
-    echo "Number of directories: $((dir_count - 1))" # Exclude current directory '.'
-    echo ""
+    echo "Number of files: $(ls -l | grep -c "^-")"
+    echo "Number of directories: $(($(ls -l | grep -c "^d") - 1))"
+    echo "Number of executable shell scripts: $(ls -l *.sh 2>/dev/null | grep -c '^-..x')"
 }
 
 # Main menu for user interaction
